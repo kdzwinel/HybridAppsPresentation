@@ -1,0 +1,714 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <!--This one seems to work all the time, but really small on ipad-->
+    <!--<meta name="viewport" content="initial-scale=0.4">-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" media="all" href="theme/css/default.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+    <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+    <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+<slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/mw/logo_inv_128.png"></aside>
+    <aside class="gde-logo auto-fadein"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+        <h1 data-config-title><!-- populated from slide_config.json --></h1>
+        <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+        <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Agenda</h2>
+    </hgroup>
+    <article>
+        <ul class="build fade">
+            <li>What are hybrid mobile apps?</li>
+            <li>Our solution</li>
+            <li>Challenges<ul>
+                <li>Code reusability &amp; maintainability</li>
+                <li>Testing</li>
+                <li>Debugging</li>
+                <li>Performance</li>
+                <li>Quirks</li>
+            </ul></li>
+        </ul>
+    </article>
+</slide>
+
+<slide class="fill nobackground" style="background-image: url(images/pics/centaur.jpg)">
+    <hgroup>
+        <h2 class="black">What are hybrid mobile apps?</h2>
+    </hgroup>
+    <footer class="source white">flickr.com/photos/mmortah/5364586900</footer>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>The Native way</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+        <div class="jlayers" style="width:650px;height:350px" data-activeView="slide-up">
+            <div style="width:650px">
+                <div class="ios-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard.png)"></div>
+                </div>
+                <div class="android-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard.png)"></div>
+                </div>
+                <div class="wp-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard.png)"></div>
+                </div>
+            </div>
+            <div style="margin-top:35px;">
+                <div class="objectivec-logo" style="width:200px;height:100px;display:inline-block"></div>
+                <div class="java-logo" style="width:200px;height:100px;display:inline-block"></div>
+                <div class="csharp-logo" style="width:200px;height:100px;display:inline-block"></div>
+            </div>
+        </div>
+    </article>
+    <footer style="position:absolute; left: 120px; bottom: 25px; right: 120px; text-align:center;">&lt;Click on the image above.&gt;</footer>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Native app</h2>
+        <h3>pros &amp; cons</h3>
+    </hgroup>
+    <article>
+        <ul class="build fade">
+            <li class="green">Performance</li>
+            <li class="green">Access to all device features</li>
+            <li class="green">Native look</li>
+            <li class="red">No portability</li>
+            <li class="red">Requires specific dev environment</li>
+            <li class="red">Publishing only through an app store</li>
+            <li class="red">Pushing updates is a pain</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>The HTML5 way</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+        <div class="jlayers" style="width:650px;height:350px" data-activeView="slide-up">
+            <div style="width:650px">
+                <div class="ios-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard-browser.png); background-size: 100% 100%;"></div>
+                </div>
+                <div class="android-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard-browser.png); background-size: 100% 100%"></div>
+                </div>
+                <div class="wp-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard-browser.png); background-size: 100% 100%"></div>
+                </div>
+            </div>
+            <div style="margin-top:35px;opacity: 0">
+                <div class="browsers-logos" style="width:600px;height:100px;display:inline-block"></div>
+            </div>
+            <div style="margin-top:35px;opacity: 0">
+                <div class="html5-logo" style="width:600px;height:100px;display:inline-block"></div>
+            </div>
+        </div>
+    </article>
+    <footer style="position:absolute; left: 120px; bottom: 25px; right: 120px; text-align:center;">&lt;Click on the image above.&gt;</footer>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>HTML5 app</h2>
+        <h3>pros &amp; cons</h3>
+    </hgroup>
+    <article>
+        <ul class="build fade">
+            <li class="green">Portability</li>
+            <li class="green">Requires only a text editor</li>
+            <li class="green">Full control over publishing</li>
+            <li class="green">Pushing updates is super easy</li>
+            <li class="yellow3">Performance</li>
+            <li class="yellow3">Access to <b>some</b> device features (geolocation, camera, mic, gyroscope)</li>
+            <li class="yellow3">Native look (if needed, has to be faked)</li>
+            <li class="red">Not installable<sup>*</sup></li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2><span class="sidenote">Sidenote</span> - Installing HTML5 apps</h2>
+    </hgroup>
+    <article class='build'>
+        <p>... is possible!</p>
+        <pre class="prettyprint" data-lang="html" style="width:78%; overflow: scroll">
+
+&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;
+&lt;meta name="mobile-web-app-capable" content="yes"&gt;</pre>
+        <img src="images/custom/home_add.png" style="height: 80%; position: absolute; right: -40px; top: 10%"/>
+        <p>Unfortunately, no one seems to understand it...</p>
+        <p><b>yet</b>.</p>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2><span class="sidenote">Sidenote</span> - WebView</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+            <li>Allows embedding web content in your application.</li>
+            <li>iOS: <code>UIWebView</code></li>
+            <li>Android: <code>android.webkit.WebView</code></li>
+            <li>WP: <code>windows.ui.xaml.controls.webview</code></li>
+            <li>Delphi (~1997!): <code>TWebBrowser</code></li>
+            <li>Not exactly a new concept.</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2><span class="sidenote">Sidenote</span> - WebView</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+        <div class="build" style="width: 675px; height: 300px; position:relative">
+            <img src="images/custom/delphi-webview.gif" style="position:absolute;left:50%;margin-left:-193px;"/>
+            <img src="images/custom/webview-gmail.jpg" style="position:absolute;"/>
+        </div>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>The Hybrid way</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+        <div class="jlayers" style="width:650px;height:350px;margin-top:160px" data-activeView="slide-up">
+            <div style="width:650px">
+                <div class="ios-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard.png);"></div>
+                </div>
+                <div class="android-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard.png);"></div>
+                </div>
+                <div class="wp-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard.png);"></div>
+                </div>
+            </div>
+            <div style="margin-top:35px;"  class="highlighted-switch">
+                <div style="width:650px;">
+                    <div class="objectivec-logo" style="width:200px;height:100px;display:inline-block"></div>
+                    <div class="java-logo" style="width:200px;height:100px;display:inline-block"></div>
+                    <div class="csharp-logo" style="width:200px;height:100px;display:inline-block"></div>
+                </div>
+                <div style="width:600px;height:100px;" class="phonegap-logo"></div>
+            </div>
+            <div style="margin-top:35px;opacity: 0">
+                <div class="native-browsers-logos" style="width:600px;height:100px;display:inline-block"></div>
+            </div>
+            <div style="margin-top:35px;opacity: 0">
+                <div class="html5-logo" style="width:600px;height:100px;display:inline-block"></div>
+            </div>
+        </div>
+    </article>
+    <footer style="position:absolute; left: 120px; bottom: 25px; right: 120px; text-align:center;">&lt;Click on the image above.&gt;</footer>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2><span class="sidenote">Sidenote</span> - Phonegap</h2>
+    </hgroup>
+    <article class="smaller">
+        <div class="build">
+            <p><b>Supported platforms</b>: Amazon Fire OS, Android, BlackBerry 10, Firefox OS, iOS, Ubuntu, Windows Phone, Windows 8, Tizen</p>
+
+            <pre class="prettyprint">$ cordova create hello</pre>
+
+              <pre class="prettyprint">
+$ cordova platform add ios
+$ cordova platform add android</pre>
+
+              <pre class="prettyprint">
+$ cordova plugin add org.apache.cordova.vibration
+$ cordova plugin add org.apache.cordova.contacts
+</pre>
+
+            <pre class="prettyprint" data-lang="javascript">
+// Vibrate for 2.5 seconds
+navigator.notification.vibrate(2500);</pre>
+<pre class="prettyprint" data-lang="javascript">
+// Create a new contact
+var myContact = navigator.contacts.create({"displayName": "Test User"});
+</pre>
+            <pre class="prettyprint">$ cordova build</pre>
+        </div>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Hybrid app</h2>
+        <h3>pros &amp; cons</h3>
+    </hgroup>
+    <article>
+        <ul class="build fade">
+            <li class="green">Portability</li>
+            <li class="green">Access to all device features</li>
+            <li class="green">Pushing updates is easy <sup>*</sup></li>
+            <li class="yellow3">Performance</li>
+            <li class="red">Requires specific dev environment</li>
+            <li class="red">Publishing only through an app store</li>
+            <li class="yellow3">Native look (if needed, has to be faked)</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>The big picture</h2>
+    </hgroup>
+    <article>
+        <table>
+            <tr>
+                <th></th><th>Native</th><th>HTML5</th><th>Hybrid</th>
+            </tr>
+            <tr>
+                <td>Performance</td><td class="green">Good</td><td class="yellow3">You have to fight</td><td class="yellow3">You have to fight</td>
+            </tr>
+            <tr>
+                <td>Features</td><td class="green">All</td><td class="yellow3">Some</td><td class="green">All</td>
+            </tr>
+            <tr>
+                <td>Native look</td><td class="green">Out of the box</td><td class="yellow3">Can be faked</td><td class="yellow3">Can be faked</td>
+            </tr>
+            <tr>
+                <td>App store</td><td class="red">Yes</td><td class="green">No</td><td class="red">Yes</td>
+            </tr>
+            <tr>
+                <td>Updating</td><td class="red">Hard</td><td class="green">Simple</td><td class="green">Simple*</td>
+            </tr>
+            <tr>
+                <td>Portability</td><td class="red">No</td><td class="green">Yes</td><td class="green">Yes</td>
+            </tr>
+        </table>
+    </article>
+</slide>
+
+<slide class="fill nobackground" style="background-image: url(images/pics/harpies2.jpg)">
+    <hgroup>
+        <h2 class="white">Our solution</h2>
+    </hgroup>
+    <footer class="source white">bluefooted.deviantart.com/art/Harpy-202194346</footer>
+</slide>
+
+<slide>
+    <aside class="note">
+        <section>
+            <p>NG - one of the biggest conglomerate in Norway.</p>
+        </section>
+    </aside>
+    <article class="flexbox vcenter">
+        <img src="images/custom/norgesgruppen.png">
+        <img src="images/custom/spar.jpg" class="ng-logos" id="ng-spar">
+        <img src="images/custom/kiwi.png" class="ng-logos" id="ng-kiwi">
+        <img src="images/custom/meny.png" class="ng-logos" id="ng-meny">
+        <img src="images/custom/joker.png" class="ng-logos" id="ng-joker">
+        <img src="images/custom/delideluca.png" class="ng-logos" id="ng-delideluca">
+    </article>
+    <style>
+        .ng-logos {
+            height: 50px;
+            opacity: 0;
+            position: absolute;
+            -webkit-transition: opacity 1s;
+        }
+
+        .current .ng-logos {
+            opacity: 1;
+        }
+
+        #ng-spar {
+            margin-top: -300px;
+            margin-left: -100px;
+            width: 220px;
+            height: auto;
+            -webkit-transition-delay: 1s;
+        }
+
+        #ng-kiwi {
+            margin-top: -300px;
+            margin-left: 300px;
+            -webkit-transition-delay: 1.3s;
+        }
+
+        #ng-meny {
+            margin-top: 0px;
+            margin-left: 300px;
+            -webkit-transition-delay: 1.6s;
+        }
+
+        #ng-joker {
+            margin-top: 0px;
+            margin-left: -38px;
+            -webkit-transition-delay: 1.9s;
+        }
+
+        #ng-delideluca {
+            margin-top: -150px;
+            margin-left: -100px;
+            -webkit-transition-delay: 2.2s;
+        }
+    </style>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Structure of the applications</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+        <div class="jlayers" style="width:850px;height:350px;margin-top:200px;" data-activeView="slide-up">
+            <div style="width:850px">
+                <div class="android-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard.png);"></div>
+                </div>
+                <div class="ios-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/spar-dashboard.png);"></div>
+                </div>
+                <div class="android-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/kiwi-main.png);"></div>
+                </div>
+                <div class="ios-wrapper" style="width:200px;height:350px;display:inline-block">
+                    <div style="background-image:url(images/custom/kiwi-main.png);"></div>
+                </div>
+            </div>
+            <div style="width:850px;height:100px;margin-top:35px;">
+                <div style="padding-left:50px;width:150px;display: inline-block;">
+                    <div class="java-logo" style="width:100px;height:100px;display:inline-block;vertical-align: middle"></div>
+                </div>
+                <div style="padding-left:50px;width:150px;display: inline-block;">
+                    <div class="objectivec-logo" style="width:100px;height:100px;display:inline-block;vertical-align: middle"></div>
+                </div>
+                <div style="padding-left:50px;width:150px;display: inline-block;">
+                    <div class="java-logo" style="width:100px;height:100px;display:inline-block;vertical-align: middle"></div>
+                </div>
+                <div style="padding-left:50px;width:150px;display: inline-block;">
+                    <div class="objectivec-logo" style="width:100px;height:100px;display:inline-block;vertical-align: middle"></div>
+                </div>
+            </div>
+            <div style="margin-top:55px;width:800px;height:60px;text-align:center; background: rgba(255,255,255,0.9);" class="bordered-layer">
+                <div class="html5-logo" style="height:60px;width:100px;display:inline-block;vertical-align: middle"></div>
+                <span>Framework</span>
+            </div>
+            <div style="margin-top:55px;width:850px;height:80px;">
+                <div style="padding-left:50px;width:350px;display: inline-block;background: rgba(255,255,255,0.9);" class="bordered-layer">
+                    <div class="html5-logo" style="width:100px;height:80px;display:inline-block;vertical-align: middle"></div>
+                    <span>Custom SPAR</span>
+                </div>
+                <div style="padding-left:50px;width:350px;display: inline-block;background: rgba(255,255,255,0.9);" class="bordered-layer">
+                    <div class="html5-logo" style="width:100px;height:80px;display:inline-block;vertical-align: middle"></div>
+                    <span>Custom KIWI</span>
+                </div>
+            </div>
+        </div>
+    </article>
+    <footer style="position:absolute; left: 120px; bottom: 25px; right: 120px; text-align:center;">&lt;Click on the image above.&gt;</footer>
+</slide>
+
+<slide  class="dark nobackground" id="spar-app-slide">
+    <article class="flexbox vcenter">
+        <div class="android-wrapper" style="width: 700px;
+height: 900px;
+display: inline-block;
+background-size: contain;
+position: relative;
+margin-top: -100px;">
+            <div style="width: 323px;
+height: 563px;
+position: absolute;
+left: 190px;
+top: 152px;
+border: none;
+background: url(images/custom/spar-dashboard.png);
+background-size: cover;
+background-position: -20px 0"></div>
+
+        </div>
+    </article>
+    <footer style="position:absolute; left: 20px; bottom: 25px; top: 50%; width: 340px; text-align:center; color: white; font-size: 80%">&lt;This was a demo. Since we built a hybrid app, I was able to embed it into presentation!&gt;</footer>
+</slide>
+
+<slide class="fill nobackground" style="background-image: url(images/pics/chimera.jpg)">
+    <hgroup>
+        <h2 class="white">Challenges</h2>
+    </hgroup>
+    <footer class="source white">orion35.deviantart.com/art/Bellerophon-vs-The-Chimera-326226558</footer>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Code reusability &amp; maintainability</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+            <li>Main building block - modules</li>
+            <li>Secondary building block - UI plugins</li>
+            <li>Templates to abstract the views</li>
+            <li>This is still far from perfect</li>
+        </ul>
+        <img src="images/custom/spar-modules.png" style="width:100%"/>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Testing</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+            <li>Hard to write unit tests</li>
+            <li>UI (DOM manipulation) and business logic tightly coupled</li>
+            <li><p>Last resort: functional tests with CasperJS</p>
+              <pre class="prettyprint" data-lang="javascript" style="background-image:url(images/custom/casper.png); background-repeat: no-repeat; background-position: 100% 300%">
+casper.start("http://www.google.com/", function() {
+    test.assertTitle("Google", "title is the one expected");
+    test.assertExists('form[action="/search"]', "main form is found");
+    this.fill('form[action="/search"]', {
+        q: "casperjs"
+    }, true);
+});</pre></li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Take-aways</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+            <li>Use a modern JS framework</li>
+            <li>Write tests from day one</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
+        <section>
+            <p>We have great tools in FE development.</p>
+            <p>We can use them, thanks to remote debugging, when working with hybrid apps.</p>
+            <p>Running apps in a browser is more comfortable in development.</p>
+            <p>Why we have to do extra work to run these apps in a browser?</p>
+        </section>
+    </aside>
+    <hgroup>
+        <h2>Working environment</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+            <li>Remote debugging</li>
+            <li>Running project inside a browser</li>
+        </ul>
+        <img src="images/custom/remote-debug.png" style="width:100%;position:absolute;left:0;"/>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Working environment</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+            <li>Codekit <ul>
+                <li>watch files</li>
+                <li>bundle and minify JS and CSS</li>
+                <li>compress images</li>
+                <li>compile SASS</li>
+                <li>validate JS</li>
+            </ul>
+            </li>
+            <li>Grunt - everything from above plus:<ul>
+                <li>live reload</li>
+                <li>add version number</li>
+                <li>deploy to the server</li>
+            </ul>
+            </li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Take-aways</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li>Take your time to setup the best working environment</li>
+            <li>Automate repetitive tasks</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
+        <section>
+            <p>Browser has to do a lot of work.</p>
+            <p>Keep it to the minimum.</p>
+        </section>
+    </aside>
+    <hgroup>
+        <h2>Performance</h2>
+        <h3>UI manipulation</h3>
+    </hgroup>
+    <article>
+        <ul class="build fade">
+            <li>Parsing</li>
+            <li>Rendering</li>
+            <li>Painting</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
+        <section>
+            <p>Multiple ways of animating - not all take advantage of hardware acceleration.</p>
+        </section>
+    </aside>
+    <hgroup>
+        <h2>Performance</h2>
+        <h3>Animations</h3>
+    </hgroup>
+    <article>
+        <ul class="build">
+            <li>Use CSS animations</li>
+            <li>Take advantage of GPU layers</li>
+            <li>
+                <div id='layers_center'>
+                    <div id='layers_wrapper'>
+                        <div id='layers_layer_1'></div>
+                        <div id='layers_layer_3'></div>
+                        <div id='layers_layer_2'></div>
+                    </div>
+                </div>
+                <p>
+                    Cheep transformations:
+                    <span id="layers_move_ball">translate</span>,
+                    <span>rotate</span>,
+                    <span>scale</span>,
+                    <span>change opacity</span>.
+                </p>
+            </li>
+        </ul>
+    </article>
+    <footer style="position:absolute; left: 120px; bottom: 25px; right: 120px; text-align:center;">&lt;Click on the image above.&gt;</footer>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Performance</h2>
+        <h3>Design affects performance</h3>
+    </hgroup>
+    <article  class="flexbox vcenter" style="margin-top:0">
+        <div class="ios-wrapper-big" style="width:350px;height:500px;display:inline-block;border-top: silver 1px solid;border-bottom: silver 1px solid;">
+            <div style="background-image:url(images/custom/spar-list.png)"></div>
+        </div>
+        <div class="ios-wrapper-big" style="width:350px;height:500px;display:inline-block;border-top: silver 1px solid;border-bottom: silver 1px solid;">
+            <div style="background-image:url(images/custom/kiwi-list.png)"></div>
+        </div>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Take-aways</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li>Learn how browsers work</li>
+            <li>Measure performance during development</li>
+            <li>Don't optimize prematurely</li>
+            <li>Talk with your graphic designer about performance</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
+        <section>
+            <p>Write once, runs everywhere? Nope.</p>
+            <p>Different browsers on different platforms/phones. With different bugs/quirks.</p>
+        </section>
+    </aside>
+    <hgroup>
+        <h2>Quirks</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+            <li>Huge problem on Android phones (because there are so many!)</li>
+            <li>Smaller on iOS</li>
+            <li>OS updates can suck on both platforms</li>
+        </ul>
+        <img src="images/custom/samsungs.jpg" style="width:100%;position:absolute;bottom:-50px;left:0"/>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Take-aways</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+            <li>Limit number of supported devices</li>
+            <li>Keep an eye on new devices &amp; system updates</li>
+            <li>Setup environment for easy multi-device testing</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2><span class="sidenote">Sidenote</span> - Open Device Lab</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+        <img src="images/custom/ODL.png" style="width:100%;border-radius: 5px;"/>
+    </article>
+</slide>
+
+<slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/mw/logo_inv_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+        <h2>Thank You!</h2>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+        <!-- populated from slide_config.json -->
+    </p>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+</body>
+</html>
